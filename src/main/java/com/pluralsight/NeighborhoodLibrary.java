@@ -34,6 +34,7 @@ public class NeighborhoodLibrary {
         books[19] = new Book(1020, "978-0-00-000019-2", true, "Bartholomew Cornelius Winchester-Jackson the Third, Esquire");
 
 
+        // Do While or While: to Loop Back to Home Screen (boolean while true)
 
         // Display Store Home Screen
         System.out.println("\nWelcome to the Library!");
@@ -45,15 +46,38 @@ public class NeighborhoodLibrary {
         System.out.print("Please Enter Number Choice Here: ");
         int homeScreenSelection = scanner.nextInt();
 
-        int home = 1;
 
-        switch (option) {
+
+        // Switch Cases based on User Option Choice
+        switch (homeScreenSelection) {
+
+            // 1. Print All Books that have 'isCheckedOut' == false with 'For'
+            // 2. Prompt the user to  select a book to check out or exit
+            // 3. Conditional Statement (If else or switch)
+            // 4. If Checking Out Book Prompt User for Name
+            // 5. Add User's name to 'checkedOutTo'
+            // 6. Make 'isCheckedOut' == True
             case 1:
                 System.out.println("Option 1");
                 break;
+
+                // 1. Print All Books that have 'isCheckedOut' == true with 'For'
+                // 2. Prompt the user to (C)Check In a book (X)to go back to home screen
+                // 3. If C changed 'checkedOutTo' to " "
+                // 4. Make 'isCheckedOut' == False
+            case 2:
+                System.out.println("Option 2");
+                break;
+
+                // 1. Exit Application
+                // 2. Set Do While too False to Loop top Home Screen
+            case 3:
+                System.out.println("Option 3");
+
+                return;
         }
 
-
+// Advice: Build Skeleton with Loops and If Statements then do the Logic for the Loop Conditions a
 
 
 
