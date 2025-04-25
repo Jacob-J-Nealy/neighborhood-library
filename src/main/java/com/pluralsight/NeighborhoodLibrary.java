@@ -35,11 +35,6 @@ public class NeighborhoodLibrary {
 
 
 
-
-
-
-
-
         // Display Store Home Screen
         System.out.println("\nWelcome to the Library!");
         System.out.println("Please select an option below by entering a number\n");
@@ -49,6 +44,14 @@ public class NeighborhoodLibrary {
         System.out.println("3. Exit Library Application\n");
         System.out.print("Please Enter Number Choice Here: ");
         int homeScreenSelection = scanner.nextInt();
+
+        int home = 1;
+
+        switch (option) {
+            case 1:
+                System.out.println("Option 1");
+                break;
+        }
 
 
 
