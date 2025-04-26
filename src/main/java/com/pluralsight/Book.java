@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import static com.pluralsight.NeighborhoodLibrary.bookTracker;
+import static com.pluralsight.NeighborhoodLibrary.books;
+
 public class Book {
 
     // Book Properties
@@ -36,6 +39,7 @@ public class Book {
 
     }
 
+
     // Getters and Setters
 
     public int getId() {
@@ -45,6 +49,7 @@ public class Book {
     public void setId(int id) {
         this.id = id;
     }
+    //_____________________________________________
 
     public String getCheckedOutTo() {
         return checkedOutTo;
