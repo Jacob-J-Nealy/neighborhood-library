@@ -24,19 +24,12 @@ public class Book {
     // to String
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", isbn='" + isbn + '\'' +
-                ", isCheckedout=" + isCheckedout +
-                ", checkedOutTo='" + checkedOutTo + '\'' +
-                ", title='" + title + '\'' +
-                '}';
+        return "Book { " + "'" + title + "' | " + " id: " + id + " |isbn:" + isbn  + "| Checked Out to: " + checkedOutTo + "}";
     }
 
 
 
     // Getters and Setters
-
     public int getId() {
         return id;
     }
