@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class NeighborhoodLibrary {
@@ -50,13 +51,7 @@ public class NeighborhoodLibrary {
 
                 // Case 1: Show Available Books and Allow User to Check Out or Go Home
                 case 1:
-                    // Print Available Books
-                    System.out.println("List of UnChecked-Out Books");
-                    for (int i = 0; i < bookTracker; i++) {
-                        if (books[i].isCheckedout() == false) {
-                            System.out.println(books[i]);
-                        }
-                    }
+                    displayUncheckedOutBooks();
 
                     // Prompt User to Go back to Home Screen or Select Book to check out
                     System.out.println("Please select a book to check out by entering ID or entering '0' to go back to Home Screen: ");
@@ -82,13 +77,26 @@ public class NeighborhoodLibrary {
                         System.out.println("This book is already checked out. Returning you to Home Screen");
                     }
                     break;
-
+                // Case 2: Show Checked Out Books and allows User Check In or Go back to Library Home
                 case 2: {
-                    System.out.println("This is Case 2");
+                    displayCheckedOutBooks();
+
+                    // Prompt User to Check In or Go to Library Home
+                    System.out.print("Please Type 'C' to check in book or 'X' to go back to the home page: ");
+                    scanner.nextLine();
+                    String checkOutScreenSelection = scanner.nextLine();
+                    if (checkOutScreenSelection.equalsIgnoreCase("C")) {
+                        System.out.println("You chose to Check In a Book");
+                    } else if (checkOutScreenSelection.equalsIgnoreCase("X")) {
+                        System.out.println("Loading Library Home Screen...");
+                        break;
+                    }
+
                 }
+                break;
 
                 case 3: {
-
+                    System.out.println("This is Case 3");
                 }
             }
         }
@@ -105,4 +113,29 @@ public class NeighborhoodLibrary {
         System.out.println("3. Exit Library Application\n");
         System.out.print("Please Enter Number Choice Here: ");
     }
+
+    public static void displayUncheckedOutBooks() {
+        // Print Available Books
+        System.out.println("List of UnChecked-Out Books");
+        for (int i = 0; i < bookTracker; i++) {
+            if (books[i].isCheckedout() == false) {
+                System.out.println(books[i]);
+            }
+        }
+    }
+
+    public static void displayCheckedOutBooks() {
+        // Print Available Books
+        System.out.println("List of Checked-Out Books");
+        for (int i = 0; i < bookTracker; i++) {
+            if (books[i].isCheckedout() == true) {
+                System.out.println(books[i]);
+            }
+        }
+    }
+
+    public static void checkOut() {
+
+    }
+
 }
