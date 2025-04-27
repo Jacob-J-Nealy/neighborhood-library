@@ -54,7 +54,7 @@ public class NeighborhoodLibrary {
                     displayUncheckedOutBooks();
 
                     // Prompt User to Go back to Home Screen or Select Book to check out
-                    System.out.println("Please select a book to check out by entering ID or entering '0' to go back to Home Screen: ");
+                    System.out.println("\nPlease select a book to check out by entering ID or entering '0' to go back to Home Screen: ");
                     int bookIdSelection = scanner.nextInt();
                     scanner.nextLine(); // Scanner Eater
 
@@ -82,29 +82,42 @@ public class NeighborhoodLibrary {
                     displayCheckedOutBooks();
 
                     // Prompt User to Check In or Go to Library Home
-                    System.out.print("Please Type 'C' to check in book or 'X' to go back to the home page: ");
+                    System.out.print("\nPlease Type 'C' to check in book or 'X' to go back to the home page: ");
                     scanner.nextLine();
                     String checkOutScreenSelection = scanner.nextLine();
+
                     if (checkOutScreenSelection.equalsIgnoreCase("C")) {
-                        System.out.println("You chose to Check In a Book");
-                    } else if (checkOutScreenSelection.equalsIgnoreCase("X")) {
-                        System.out.println("Loading Library Home Screen...");
-                        break;
+                        System.out.print("Please Enter the ID Number for the Book you would like to check back in: ");
+                        int bookIdSelection2 = scanner.nextInt();
+                        System.out.println("you have selected" + --bookIdSelection2);
+
+                        if (books[bookIdSelection2].isCheckedout()) {
+                            books[bookIdSelection2].setCheckedOutTo("");
+                            books[bookIdSelection2].setCheckedout(false);
+                            System.out.println(books[bookIdSelection2] + " has been successfully checked out! ");
+                            System.out.println("\n Returning to Library Home Screen...\n");
+                            break;
+
+                        } else if (checkOutScreenSelection.equalsIgnoreCase("X")) {
+                            System.out.println("Loading Library Home Screen...");
+                            break;
+                        }
+
                     }
 
                 }
-                break;
-
                 case 3: {
-                    System.out.println("This is Case 3");
+                    return;
                 }
+
+
             }
+
+
         }
 
-
     }
-
-    public static void displayHomeScreen() {
+    public static void displayHomeScreen () {
         System.out.println("\nWelcome to the Library Home Screen!");
         System.out.println("Please select an option below by entering a number\n");
 
@@ -113,8 +126,7 @@ public class NeighborhoodLibrary {
         System.out.println("3. Exit Library Application\n");
         System.out.print("Please Enter Number Choice Here: ");
     }
-
-    public static void displayUncheckedOutBooks() {
+    public static void displayUncheckedOutBooks () {
         // Print Available Books
         System.out.println("List of UnChecked-Out Books");
         for (int i = 0; i < bookTracker; i++) {
@@ -123,8 +135,7 @@ public class NeighborhoodLibrary {
             }
         }
     }
-
-    public static void displayCheckedOutBooks() {
+    public static void displayCheckedOutBooks () {
         // Print Available Books
         System.out.println("List of Checked-Out Books");
         for (int i = 0; i < bookTracker; i++) {
@@ -132,10 +143,6 @@ public class NeighborhoodLibrary {
                 System.out.println(books[i]);
             }
         }
-    }
-
-    public static void checkOut() {
-
     }
 
 }
